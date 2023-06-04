@@ -23,7 +23,7 @@ const Category = ({ params }) => {
             {params.category}
          </h1>
          {datas.map(data => (
-            <Item title={data.title} desc={data.desc} image={data.image} picLocation={data.id % 2 === 0 ? 'right' : 'left'}/>
+            <Item key={data.id} title={data.title} desc={data.desc} image={data.image} picLocation={data.id % 2 === 0 ? 'right' : 'left'}/>
          ))}
       </div>
    )
@@ -41,6 +41,7 @@ const Item = ({ picLocation, title, desc, image }) => {
                </div>
                <div className="flex-[1] h-[500px] relative">
                   <Image
+                  className='object-cover'
                      fill={true}
                      alt={`${title} Illustration`}
                      src={image}

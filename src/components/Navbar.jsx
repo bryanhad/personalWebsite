@@ -1,5 +1,7 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
+import DarkModeToggle from './DarkModeToggle'
 
 const links = [
   {
@@ -36,14 +38,18 @@ const links = [
 
 const Navbar = () => {
   return (
-    <div>
-      <Link href='/'>BryanHad</Link>
-      <div>
+    <nav className='h-[100px] flex justify-between items-center'>
+      <Link href='/' className='font-bold text-lg '>BryanHad</Link>
+      <div className='flex items-center gap-[20px]'>
+        <DarkModeToggle/>
         {links.map(link => (
           <Link key={link.id} href={link.url}>{link.title}</Link>
         ))}
       </div>
-    </div>
+      <button className='p-[5px] bg-coolGreen text-white rounded-md' onClick={() => {
+        console.log('logged out')
+      }}>Logout</button>
+    </nav>
   )
 }
 

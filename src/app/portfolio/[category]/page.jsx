@@ -4,18 +4,18 @@ import React from 'react'
 import { items } from './data'
 import { notFound } from 'next/navigation'
 
-const getData = (category) => {
-   const data = items[category]
-
-   if(data) {
-      return data
+const getData = (cat) => {
+   const data = items[cat];
+ 
+   if (data) {
+     return data;
    }
-
-   return notFound()
-}
+ 
+   return notFound();
+ };
 
 const Category = ({ params }) => {
-   const datas = getData(params.category)
+   const datas = getData(params.category);
 
    return (
       <div>
